@@ -170,4 +170,21 @@ SELECT * FROM COMPANY.Instructors;
 SELECT * FROM EMPLOYEE.Enrollments;
 SELECT * FROM GPAY.Payments;
 
+CREATE DATABASE UNIVERSITY;
+USE UNIVERSITY;
+CREATE TABLE Professors (
+    professor_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    phone VARCHAR(15),
+    department VARCHAR(50),
+    hire_date DATE,
+    gender VARCHAR(10),
+    address TEXT,
+    city VARCHAR(50),
+    state VARCHAR(50),
+    zip_code VARCHAR(10)
+);
+SELECT * FROM Professors;
+
 
