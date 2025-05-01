@@ -9,6 +9,7 @@ CREATE TABLE Continents (
     num_countries INT,
     largest_country VARCHAR(50),
     highest_peak VARCHAR(50),
+    
     avg_temperature INT
 );
 
@@ -39,6 +40,8 @@ UPDATE Continents SET population_million = 5000 WHERE name = 'Asia';
 UPDATE Continents SET avg_temperature = 30 WHERE num_countries > 50;
 UPDATE Continents SET largest_country = 'Unknown' WHERE area_sqkm < 2000000;
 
+
+
 DELETE FROM Continents WHERE name = 'Atlantis';
 DELETE FROM Continents WHERE avg_temperature < 0;
 
@@ -49,6 +52,30 @@ SELECT * FROM Continents WHERE name IN ('Asia', 'Africa', 'Europe');
 SELECT * FROM Continents WHERE name NOT IN ('Antarctica', 'Atlantis');
 SELECT * FROM Continents WHERE area_sqkm BETWEEN 5000000 AND 20000000;
 SELECT * FROM Continents WHERE avg_temperature NOT BETWEEN 10 AND 30;
+
+SELECT count(*) from Continents;
+
+SELECT COUNT(*) as no_of_rows FROM Continents;
+SELECT sum(id) as id from Continents;
+SELECT MAX(name) as  name from Continents;
+SELECT name, max(id) as id from Continents;
+SELECT min(avg_temperature) as avg_temperature from Continents;
+select avg(avg_temperature) as avg_temperature from Continents;
+SELECT sum(id) as avg_temperature from Continents where id <= 7;
+select max(population_million) as population_million from Continents where name = 'Africa';
+SELECT sum(id) as population_million from Continents where name = 'Asia';
+SELECT sum(id), avg_temperature  from Continents group by avg_temperature ;
+SELECT  area_sqkm, min(id) as id from Continents group by  area_sqkm;
+SELECT area_sqkm,count(area_sqkm) from Continents group by area_sqkm;
+SELECT id, (area_sqkm) as area_sqkm from Continents 
+group by id HAVING area_sqkm>4920000;
+
+select * from Continents;
+
+
+
+
+
 
 CREATE TABLE Countries (
     id INT,
@@ -150,5 +177,7 @@ SELECT * FROM Oceans WHERE known_species > 20000 OR avg_depth_m > 3000;
 SELECT * FROM Oceans WHERE name IN ('Pacific', 'Indian', 'Atlantic');
 SELECT * FROM Oceans WHERE bordering_continents NOT LIKE '%Europe%' AND bordering_continents NOT LIKE '%Africa%';
 SELECT * FROM Oceans WHERE max_depth_m BETWEEN 5000 AND 10000;
+
+
 
 
